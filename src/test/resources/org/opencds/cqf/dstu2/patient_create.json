@@ -1,0 +1,49 @@
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "family": "N Geriatric",
+      "given": [
+        "2"
+      ],
+      "suffix": [
+        "Jr"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "586-555-7576",
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "586-555-0297",
+      "use": "work"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/us-core-direct",
+          "valueBoolean": true
+        }
+      ],
+      "system": "email",
+      "value": "2.N.Geriatric@direct.mihintest.org",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1946-05-07",
+  "address": [
+    {
+      "line": [
+        "202 Burlington Rd."
+      ],
+      "city": "Bedford",
+      "state": "MA",
+      "postalCode": "01730"
+    }
+  ]
+}

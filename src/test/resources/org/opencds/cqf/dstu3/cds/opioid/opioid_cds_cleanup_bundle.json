@@ -1,0 +1,120 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/benzodiazepines"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/discharge-to-hospice"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/end-of-life-care"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/end-of-life-conditions"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/hospice-finding"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/hospice-procedure"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/illicit-drug-urine-screening"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/limited-life-expectancy-conditions"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/long-acting-opioids"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/metastatic-cancer"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/naloxone"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/opioid-abuse-assessment"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/opioid-urine-screening"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/opioids-abused-in-ambulatory-care"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/opioids-codeine-cough-meds"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/opioids-indicating-end-of-life"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/opioids"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/short-acting-opioids"
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "url": "ValueSet/substance-abuse"
+      }
+    }
+  ]
+}
