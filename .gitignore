@@ -127,3 +127,4 @@ Temporary Items
 .apdisk
 
 /src/main/resources/*
+!/src/main/resources/.gitkeep
