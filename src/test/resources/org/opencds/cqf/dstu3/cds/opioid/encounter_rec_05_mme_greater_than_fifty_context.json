@@ -1,0 +1,16 @@
+{
+  "resourceType": "Encounter",
+  "id": "example-rec-05-mme-greater-than-fifty-context",
+  "status": "finished",
+  "subject": {
+    "reference": "Patient/example-rec-05-mme-greater-than-fifty"
+  },
+  "period": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+        "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() } }"
+      }
+    ]
+  }
+}

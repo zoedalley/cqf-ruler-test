@@ -1,0 +1,6 @@
+{
+  "resourceType": "Patient",
+  "id": "example-rec-07-seven-of-past-ten-days",
+  "gender": "male",
+  "birthDate": "1982-01-07"
+}

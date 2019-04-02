@@ -1,0 +1,24 @@
+{
+  "resourceType": "MeasureReport",
+  "id": "col-measurereport",
+  "status": "complete",
+  "_type": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/davinci-deqm/STU3/StructureDefinition/extension-dataCollectionType",
+        "valueBoolean": true
+      }
+    ]
+  },
+  "measure": {
+    "reference": "Measure/measure-col"
+  },
+  "patient": {
+    "reference": "Patient/patient01"
+  },
+  "date": "2018-09-05T16:59:52.404Z",
+  "period": {
+    "start": "2018-08-01",
+    "end": "2018-09-01"
+  }
+}

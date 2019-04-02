@@ -1,0 +1,16 @@
+{
+  "resourceType": "Encounter",
+  "id": "example-rec-11-benzo-trigger-with-opioid-context",
+  "status": "finished",
+  "subject": {
+    "reference": "Patient/example-rec-11-benzo-trigger-with-opioid"
+  },
+  "period": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression",
+        "valueString": "FHIR.Period { start: FHIR.dateTime { value: Today() }, end: FHIR.dateTime { value: Today() } }"
+      }
+    ]
+  }
+}

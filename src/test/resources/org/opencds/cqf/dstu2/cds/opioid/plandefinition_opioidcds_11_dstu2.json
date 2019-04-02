@@ -1,7 +1,7 @@
 {
   "resourceType": "PlanDefinition",
   "id": "opioidcds-11-dstu2",
-  "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-11",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/PlanDefinition/opioidcds-11-dstu2",
   "identifier": [
     {
       "use": "official",

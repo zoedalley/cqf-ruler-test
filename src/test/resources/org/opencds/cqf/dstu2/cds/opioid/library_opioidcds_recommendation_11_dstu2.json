@@ -1,7 +1,7 @@
 {
   "resourceType": "Library",
   "id": "opioidcds-recommendation-11-dstu2",
-  "url": "http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-common",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-recommendation-11-dstu2",
   "identifier": [
     {
       "use": "official",

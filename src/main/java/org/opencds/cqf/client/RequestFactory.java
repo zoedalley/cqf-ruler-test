@@ -43,6 +43,7 @@ public class RequestFactory {
                     "Error getting response: " + ioe.getMessage()
             );
         }
+        conn.disconnect();
         return response.toString();
     }
 

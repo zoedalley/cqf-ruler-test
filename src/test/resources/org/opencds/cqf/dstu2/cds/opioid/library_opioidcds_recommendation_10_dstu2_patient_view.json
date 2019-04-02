@@ -1,7 +1,7 @@
 {
   "resourceType": "Library",
   "id": "opioidcds-recommendation-10-dstu2-patient-view",
-  "url": "http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-recommendation-10",
+  "url": "http://fhir.org/guides/cdc/opioid-cds/Library/opioidcds-recommendation-10-dstu2-patient-view",
   "identifier": [
     {
       "use": "official",
