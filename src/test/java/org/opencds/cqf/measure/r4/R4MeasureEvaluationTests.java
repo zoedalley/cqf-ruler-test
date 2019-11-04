@@ -1,5 +1,7 @@
 package org.opencds.cqf.measure.r4;
 
+import com.google.gson.JsonObject;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -8,6 +10,7 @@ import org.opencds.cqf.TestHelper;
 import org.opencds.cqf.client.RequestFactory;
 import org.opencds.cqf.measure.MeasureEvaluationTestBase;
 import org.opencds.cqf.measure.R4MeasureReportProcessor;
+import org.opencds.cqf.testcase.GroupItems;
 import org.opencds.cqf.testcase.MeasureTestScript;
 
 import javax.xml.bind.JAXBContext;
@@ -55,6 +58,16 @@ public class R4MeasureEvaluationTests extends MeasureEvaluationTestBase {
 
             R4MeasureReportProcessor processor =  new R4MeasureReportProcessor(response);
             processExpectedResponse(script, processor);
+        }
+    }
+
+    @Override
+    public void processMeasureScore(JsonObject group, GroupItems items) {
+        if (group.has("measureScore")) {
+            JsonObject measureScoreQuantity = group.getAsJsonObject("measureScore");
+            if (measureScoreQuantity.has("value")) {
+                Assert.assertTrue(measureScoreQuantity.getAsJsonPrimitive("value").getAsBigDecimal().equals(items.getMeasureScore()));
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 package org.opencds.cqf.measure.stu3;
 
+import com.google.gson.JsonObject;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -8,6 +10,7 @@ import org.opencds.cqf.TestHelper;
 import org.opencds.cqf.client.RequestFactory;
 import org.opencds.cqf.measure.MeasureEvaluationTestBase;
 import org.opencds.cqf.measure.Stu3MeasureReportProcessor;
+import org.opencds.cqf.testcase.GroupItems;
 import org.opencds.cqf.testcase.MeasureTestScript;
 
 import javax.xml.bind.JAXBContext;
@@ -56,6 +59,13 @@ public class Stu3MeasureEvaluationTests extends MeasureEvaluationTestBase {
 
             Stu3MeasureReportProcessor processor =  new Stu3MeasureReportProcessor(response);
             processExpectedResponse(script, processor);
+        }
+    }
+
+    @Override
+    public void processMeasureScore(JsonObject group, GroupItems items) {
+        if (group.has("measureScore")) {
+            Assert.assertTrue(group.getAsJsonPrimitive("measureScore").getAsBigDecimal().equals(items.getMeasureScore()));
         }
     }
 }

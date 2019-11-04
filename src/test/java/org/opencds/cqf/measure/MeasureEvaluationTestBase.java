@@ -5,9 +5,11 @@ import org.junit.Assert;
 import org.opencds.cqf.testcase.GroupItems;
 import org.opencds.cqf.testcase.MeasureTestScript;
 
-public class MeasureEvaluationTestBase {
+public abstract class MeasureEvaluationTestBase {
 
-    public void processExpectedResponse(MeasureTestScript script, MeasureReportProcessor processor) {
+    public abstract void processMeasureScore(JsonObject group, GroupItems items);
+
+    protected void processExpectedResponse(MeasureTestScript script, MeasureReportProcessor processor) {
         for (GroupItems items : script.getTest().getExpectedResponse().getGroup()) {
             if (items.getId() == null) continue;
             JsonObject group = processor.getGroupById(items.getId());
@@ -36,9 +38,7 @@ public class MeasureEvaluationTestBase {
                 }
             }
             if (items.getMeasureScore() != null) {
-                if (group.has("measureScore")) {
-                    Assert.assertTrue(group.getAsJsonPrimitive("measureScore").getAsBigDecimal().equals(items.getMeasureScore()));
-                }
+                processMeasureScore(group, items);
             }
         }
     }
