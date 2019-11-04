@@ -11,9 +11,9 @@
     <properties>
         <test.url>http://localhost:8080/cqf-ruler</test.url>
         <dstu2.path>baseDstu2</dstu2.path>
-        <dstu3.path>baseDstu3</dstu3.path>
+        <dstu3.path>dstu3/fhir</dstu3.path>
         <dstu2.cds.discovery>dstu2/cds-services</dstu2.cds.discovery>
-        <dstu3.cds.discovery>dstu3/cds-services</dstu3.cds.discovery>
+        <dstu3.cds.discovery>cds-services</dstu3.cds.discovery>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -38,10 +38,98 @@
             <artifactId>gson</artifactId>
             <version>2.8.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-fluent-api</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics</artifactId>
+            <version>0.9.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.14.0</version>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaDirectory>${project.basedir}/src/main/resources/org/opencds/cqf/schema</schemaDirectory>
+                    <schemaIncludes>
+                        <include>measure-test-script.xsd</include>
+                    </schemaIncludes>
+                    <episode>false</episode>
+                    <args>
+                        <arg>-Xfluent-api</arg>
+                        <arg>-Xequals</arg>
+                        <arg>-XhashCode</arg>
+                        <arg>-XtoString</arg>
+                        <arg>-npa</arg>
+                        <arg>-XautoInheritance</arg>
+                        <!--<arg>-XautoInheritance-xmlTypesExtend=org.opencds.cqf.cql.elm.execution.Executable</arg>-->
+                    </args>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-fluent-api</artifactId>
+                            <version>3.0</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics</artifactId>
+                            <version>0.9.4</version>
+                        </plugin>
+                    </plugins>
+                    <generateDirectory>src/generated/java</generateDirectory>
+                    <generatePackage>org.opencds.cqf.testcase</generatePackage>
+                    <readOnly>false</readOnly>
+                    <markGenerated>false</markGenerated>
+                    <disableXmlSecurity>true</disableXmlSecurity>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/generated/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -62,7 +150,7 @@
                     <groups>${test.groups}</groups>
                     <systemPropertyVariables>
                         <base.dstu2>${test.url}/${dstu2.path}</base.dstu2>
-                        <base.dstu3>${test.url}/${dstu3.path}</base.dstu3>
+                        <base.dstu3>${test.url}-${dstu3.path}</base.dstu3>
                         <cds.dstu2>${test.url}/${dstu2.cds.discovery}</cds.dstu2>
                         <cds.dstu3>${test.url}/${dstu3.cds.discovery}</cds.dstu3>
                     </systemPropertyVariables>
