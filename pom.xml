@@ -10,7 +10,7 @@
 
     <properties>
         <test.url>http://localhost:8080/cqf-ruler</test.url>
-        <dstu2.path>baseDstu2</dstu2.path>
+        <r4.path>r4/fhir</r4.path>
         <dstu3.path>dstu3/fhir</dstu3.path>
         <dstu2.cds.discovery>dstu2/cds-services</dstu2.cds.discovery>
         <dstu3.cds.discovery>cds-services</dstu3.cds.discovery>
@@ -149,7 +149,7 @@
                     </includes>
                     <groups>${test.groups}</groups>
                     <systemPropertyVariables>
-                        <base.dstu2>${test.url}/${dstu2.path}</base.dstu2>
+                        <base.r4>${test.url}-${r4.path}</base.r4>
                         <base.dstu3>${test.url}-${dstu3.path}</base.dstu3>
                         <cds.dstu2>${test.url}/${dstu2.cds.discovery}</cds.dstu2>
                         <cds.dstu3>${test.url}/${dstu3.cds.discovery}</cds.dstu3>
