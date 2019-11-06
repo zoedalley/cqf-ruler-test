@@ -13,7 +13,7 @@
         </resource>
         <resource>
             <reference>Measure/measure-exm125-FHIR3</reference>
-            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resource/connectathons/bcs/measure-exm125-FHIR3.json</path>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resource/connectathon/bcs/measure-exm125-FHIR3.json</path>
         </resource>
     </loadArtifacts>
     <!-- List of tests -->
