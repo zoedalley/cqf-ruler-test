@@ -1,0 +1,54 @@
+<MeasureTestScript>
+    <id>BCS</id>
+    <description>Breast Cancer Screening STU3 Measure Tests</description>
+    <!-- Load artifacts (Library, Measure, Terminology, etc...) -->
+    <loadArtifacts>
+        <!-- Can load any number of Bundles or Resources -->
+        <!-- Relative file path from project base -->
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/connectathon/bcs/bcs-terminology.json</bundle>
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/connectathon/common-libraries.json</bundle>
+        <resource>
+            <reference>Library/library-exm125-FHIR3</reference>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/connectathon/bcs/library-exm125-FHIR3.json</path>
+        </resource>
+        <resource>
+            <reference>Measure/measure-exm125-FHIR3</reference>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resource/connectathons/bcs/measure-exm125-FHIR3.json</path>
+        </resource>
+    </loadArtifacts>
+    <!-- List of tests -->
+    <test>
+        <id>bcs-out</id>
+        <!-- Load patient data (Patient, Encounter, Observation, etc... -->
+        <loadPatientData>
+            <!-- Can load any number of Bundles or Resources -->
+            <!-- Relative file path from project base -->
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/connectathon/bcs/patient-data-exm125-FHIR3-out.json</bundle>
+            <!--<resource></resource>-->
+        </loadPatientData>
+        <!-- Start $evaluate-measure parameters -->
+        <measureId>measure-exm125-FHIR3</measureId>
+        <patientId>cbb3375f-0962-4f31-8681-c7e6f29968dd-1</patientId>
+        <periodStart>2019-01-01</periodStart>
+        <periodEnd>2019-12-31</periodEnd>
+        <reportType>patient</reportType>
+        <!--<practitioner></practitioner>-->
+        <!--<lastReceivedOn></lastReceivedOn>-->
+        <!-- End $evaluate-measure parameters -->
+        <!-- Define the expected response -->
+        <expectedResponse>
+            <!-- Groups correspond to the group identifier/code in the Measure/MeasureReport -->
+            <group>
+                <id>group-1</id>
+                <!-- The expected count for each population grouping -->
+                <initial-population>1</initial-population>
+                <denominator>1</denominator>
+                <numerator>0</numerator>
+                <denominator-exclusion>0</denominator-exclusion>
+                <!-- The expected measure score -->
+                <measure-score>0.0</measure-score>
+                <!-- TODO stratification and subjectResult/patients list (for patient-list/subject-list measures) -->
+            </group>
+        </expectedResponse>
+    </test>
+</MeasureTestScript>

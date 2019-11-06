@@ -1,20 +1,20 @@
 <MeasureTestScript>
-    <id>BCS</id>
-    <description>Breast Cancer Screening STU3 Measure Tests</description>
+    <id>hedis-CCS</id>
+    <description>Cervical Cancer Screening STU3 Measure Tests</description>
     <!-- Load artifacts (Library, Measure, Terminology, etc...) -->
     <loadArtifacts>
         <!-- Can load any number of Bundles or Resources -->
         <!-- Relative file path from project base -->
-        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/bcs/bcs-terminology.json</bundle>
-        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/common-libraries.json</bundle>
-        <resource>
-            <reference>Library/library-exm125-FHIR3</reference>
-            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/bcs/library-exm125-FHIR3.json</path>
-        </resource>
-        <resource>
-            <reference>Measure/measure-exm125-FHIR3</reference>
-            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/bcs/measure-exm125-FHIR3.json</path>
-        </resource>
+        <!--<bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/bcs-terminology.json</bundle>-->
+        <!--<bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-libraries.json</bundle>-->
+        <!--<resource>-->
+            <!--<reference>Library/library-exm125-FHIR3</reference>-->
+            <!--<path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bcs/library-exm125-FHIR3.json</path>-->
+        <!--</resource>-->
+        <!--<resource>-->
+            <!--<reference>Measure/measure-exm125-FHIR3</reference>-->
+            <!--<path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bcs/measure-exm125-FHIR3.json</path>-->
+        <!--</resource>-->
     </loadArtifacts>
     <!-- List of tests -->
     <test>
@@ -23,11 +23,11 @@
         <loadPatientData>
             <!-- Can load any number of Bundles or Resources -->
             <!-- Relative file path from project base -->
-            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/bcs/patient-data-exm125-FHIR3-out.json</bundle>
+            <!--<bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bcs/patient-data-exm125-FHIR3-out.json</bundle>-->
             <!--<resource></resource>-->
         </loadPatientData>
         <!-- Start $evaluate-measure parameters -->
-        <measureId>measure-exm125-FHIR3</measureId>
+        <measureId>measure-ccs</measureId>
         <patientId>cbb3375f-0962-4f31-8681-c7e6f29968dd-1</patientId>
         <periodStart>2019-01-01</periodStart>
         <periodEnd>2019-12-31</periodEnd>
