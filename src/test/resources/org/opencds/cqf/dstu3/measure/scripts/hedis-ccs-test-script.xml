@@ -39,12 +39,12 @@
         <expectedResponse>
             <!-- Groups correspond to the group identifier/code in the Measure/MeasureReport -->
             <group>
-                <id>group-1</id>
+                <id>CCS-cohort</id>
                 <!-- The expected count for each population grouping -->
                 <initial-population>1</initial-population>
                 <denominator>1</denominator>
                 <numerator>0</numerator>
-                <denominator-exclusion>0</denominator-exclusion>
+                <!--<denominator-exclusion>0</denominator-exclusion>-->
                 <!-- The expected measure score -->
                 <measure-score>0.0</measure-score>
                 <!-- TODO stratification and subjectResult/patients list (for patient-list/subject-list measures) -->
