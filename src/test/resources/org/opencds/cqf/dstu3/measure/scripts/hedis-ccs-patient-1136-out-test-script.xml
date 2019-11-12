@@ -52,37 +52,4 @@
             </group>
         </expectedResponse>
     </test>
-    <test>
-        <id>ccs-out2</id>
-        <!-- Load patient data (Patient, Encounter, Observation, etc... -->
-        <loadPatientData>
-            <!-- Can load any number of Bundles or Resources -->
-            <!-- Relative file path from project base -->
-            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/bundle-adj-2636.json</bundle>
-            <!--<resource></resource>-->
-        </loadPatientData>
-        <!-- Start $evaluate-measure parameters -->
-        <measureId>measure-ccs</measureId>
-        <patientId>Patient-1136</patientId>
-        <periodStart>2017-01-01</periodStart>
-        <periodEnd>2017-12-31</periodEnd>
-        <reportType>patient</reportType>
-        <!--<practitioner></practitioner>-->
-        <!--<lastReceivedOn></lastReceivedOn>-->
-        <!-- End $evaluate-measure parameters -->
-        <!-- Define the expected response -->
-        <expectedResponse>
-            <!-- Groups correspond to the group identifier/code in the Measure/MeasureReport -->
-            <group>
-                <id>CCS-cohort</id>
-                <!-- The expected count for each population grouping -->
-                <initial-population>1</initial-population>
-                <denominator>1</denominator>
-                <numerator>0</numerator>
-                <!-- The expected measure score -->
-                <measure-score>0.0</measure-score>
-                <!-- TODO stratification and subjectResult/patients list (for patient-list/subject-list measures) -->
-            </group>
-        </expectedResponse>
-    </test>
 </MeasureTestScript>
