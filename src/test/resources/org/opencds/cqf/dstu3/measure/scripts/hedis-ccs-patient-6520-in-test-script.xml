@@ -5,32 +5,34 @@
     <loadArtifacts>
         <!-- Can load any number of Bundles or Resources -->
         <!-- Relative file path from project base -->
-        <!--<bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/bcs-terminology.json</bundle>-->
-        <!--<bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-libraries.json</bundle>-->
-        <!--<resource>-->
-            <!--<reference>Library/library-exm125-FHIR3</reference>-->
-            <!--<path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bcs/library-exm125-FHIR3.json</path>-->
-        <!--</resource>-->
-        <!--<resource>-->
-            <!--<reference>Measure/measure-exm125-FHIR3</reference>-->
-            <!--<path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bcs/measure-exm125-FHIR3.json</path>-->
-        <!--</resource>-->
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/ccs-terminology.json</bundle>
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-libraries.json</bundle>
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-terminology.json</bundle>
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bundle-patient.json</bundle>
+        <resource>
+            <reference>Library/library-ccs-logic</reference>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/library-ccs-logic.json</path>
+        </resource>
+        <resource>
+            <reference>Measure/measure-ccs</reference>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/measure-ccs.json</path>
+        </resource>
     </loadArtifacts>
     <!-- List of tests -->
     <test>
-        <id>bcs-out</id>
+        <id>ccs-in</id>
         <!-- Load patient data (Patient, Encounter, Observation, etc... -->
         <loadPatientData>
             <!-- Can load any number of Bundles or Resources -->
             <!-- Relative file path from project base -->
-            <!--<bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bcs/patient-data-exm125-FHIR3-out.json</bundle>-->
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/bundle-thw-789.json</bundle>
             <!--<resource></resource>-->
         </loadPatientData>
         <!-- Start $evaluate-measure parameters -->
         <measureId>measure-ccs</measureId>
-        <patientId>cbb3375f-0962-4f31-8681-c7e6f29968dd-1</patientId>
-        <periodStart>2019-01-01</periodStart>
-        <periodEnd>2019-12-31</periodEnd>
+        <patientId>Patient-6520</patientId>
+        <periodStart>1997-01-01</periodStart>
+        <periodEnd>1997-12-31</periodEnd>
         <reportType>patient</reportType>
         <!--<practitioner></practitioner>-->
         <!--<lastReceivedOn></lastReceivedOn>-->
@@ -39,14 +41,13 @@
         <expectedResponse>
             <!-- Groups correspond to the group identifier/code in the Measure/MeasureReport -->
             <group>
-                <id>group-1</id>
+                <id>CCS-cohort</id>
                 <!-- The expected count for each population grouping -->
                 <initial-population>1</initial-population>
                 <denominator>1</denominator>
-                <numerator>0</numerator>
-                <denominator-exclusion>0</denominator-exclusion>
+                <numerator>1</numerator>
                 <!-- The expected measure score -->
-                <measure-score>0.0</measure-score>
+                <measure-score>1.0</measure-score>
                 <!-- TODO stratification and subjectResult/patients list (for patient-list/subject-list measures) -->
             </group>
         </expectedResponse>
