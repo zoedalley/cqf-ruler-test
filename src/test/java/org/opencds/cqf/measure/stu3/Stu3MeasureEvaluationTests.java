@@ -46,19 +46,20 @@ public class Stu3MeasureEvaluationTests extends MeasureEvaluationTestBase {
     public ErrorCollector collector = new ErrorCollector();
 
     @Test
-    public void MeasureTests() throws JAXBException, IOException {
+    public void MeasureTests() throws IOException {
 
         for (MeasureTestScript script : scripts) {
             TestHelper.loadMeasureData(script, baseStu3Url);
-            String response =
-                    RequestFactory.makeRequest(
-                            RequestFactory.RequestType.GET,
-                            baseStu3Url + TestHelper.buildEvaluateMeasureRequest(script),
-                            null
-                    );
-
-            Stu3MeasureReportProcessor processor =  new Stu3MeasureReportProcessor(response);
-            processExpectedResponse(script, processor);
+            for (MeasureTestScript.Test test : script.getTest()) {
+                String response =
+                        RequestFactory.makeRequest(
+                                RequestFactory.RequestType.GET,
+                                baseStu3Url + TestHelper.buildEvaluateMeasureRequest(test),
+                                null
+                        );
+                Stu3MeasureReportProcessor processor =  new Stu3MeasureReportProcessor(response);
+                processExpectedResponse(test, processor);
+            }
         }
     }
 

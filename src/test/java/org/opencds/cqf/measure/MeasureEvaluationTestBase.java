@@ -9,8 +9,8 @@ public abstract class MeasureEvaluationTestBase {
 
     public abstract void processMeasureScore(JsonObject group, GroupItems items);
 
-    protected void processExpectedResponse(MeasureTestScript script, MeasureReportProcessor processor) {
-        for (GroupItems items : script.getTest().getExpectedResponse().getGroup()) {
+    protected void processExpectedResponse(MeasureTestScript.Test test, MeasureReportProcessor processor) {
+        for (GroupItems items : test.getExpectedResponse().getGroup()) {
             if (items.getId() == null) continue;
             JsonObject group = processor.getGroupById(items.getId());
             if (items.getInitialPopulation() != null) {
