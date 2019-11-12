@@ -1,0 +1,37 @@
+<MeasureTestScript>
+    <id>ASF</id>
+    <description>Unhealthy Alcohol Use Screening and Follow-up STU3 Measure Tests</description>
+    <loadArtifacts>
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/asf-terminology.json</bundle>
+        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-libraries.json</bundle>
+        <resource>
+            <reference>Library/library-asf-logic</reference>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/library-asf-logic.json</path>
+        </resource>
+        <resource>
+            <reference>Measure/measure-asf</reference>
+            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/measure-asf.json</path>
+        </resource>
+    </loadArtifacts>
+    <test>
+        <id>asf-in</id>
+        <loadPatientData>
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/bundle-asf-in.json</bundle>
+        </loadPatientData>
+        <measureId>measure-asf</measureId>
+        <patientId>asf-in</patientId>
+        <periodStart>2019-01-01</periodStart>
+        <periodEnd>2019-12-31</periodEnd>
+        <reportType>patient</reportType>
+        <expectedResponse>
+            <group>
+                <id>ASF-cohort</id>
+                <initial-population>1</initial-population>
+                <denominator>1</denominator>
+                <numerator>1</numerator>
+                <denominator-exclusion>0</denominator-exclusion>
+                <measure-score>1.0</measure-score>
+            </group>
+        </expectedResponse>
+    </test>
+</MeasureTestScript>
