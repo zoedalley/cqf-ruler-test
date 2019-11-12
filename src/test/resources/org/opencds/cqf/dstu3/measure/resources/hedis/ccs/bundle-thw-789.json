@@ -73,8 +73,8 @@
           "coding": [
             {
               "system": "http://www.ama-assn.org/go/cpt",
-              "code": "58150",
-              "display": "Total abdominal hysterectomy (corpus and cervix), with or without removal of tube(s), with or without removal of ovary(s)"
+              "code": "88147",
+              "display": "Cytopathology smears, cervical or vaginal; screening by automated system under physician supervision"
             }
           ]
         },
