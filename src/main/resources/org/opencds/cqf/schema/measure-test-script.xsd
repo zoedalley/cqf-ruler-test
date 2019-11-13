@@ -4,6 +4,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:string"/>
+                <xs:element name="enabled" type="xs:boolean"/>
                 <xs:element name="description" type="xs:string"/>
                 <xs:element name="loadArtifacts">
                     <xs:complexType>
