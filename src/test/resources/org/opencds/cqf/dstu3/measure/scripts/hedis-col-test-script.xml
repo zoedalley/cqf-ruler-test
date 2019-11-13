@@ -1,6 +1,6 @@
 <MeasureTestScript>
     <id>hedis-COL</id>
-    <enabled>true</enabled>
+    <enabled>false</enabled>
     <description>Cervical Cancer Screening STU3 Measure Tests</description>
     <!-- Load artifacts (Library, Measure, Terminology, etc...) -->
     <loadArtifacts>
