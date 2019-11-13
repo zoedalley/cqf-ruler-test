@@ -5,7 +5,7 @@
     {
       "resource": {
         "resourceType": "ValueSet",
-        "id": "2.16.840.1.113883.3.464.1003.108.12.1020",
+        "id": "2.16.840.1.113883.3.464.1004.1064",
         "title": "Colonoscopy",
         "status": "active",
         "publisher": "National Committee for Quality Assurance",
@@ -1172,8 +1172,8 @@
     {
       "resource": {
         "resourceType": "ValueSet",
-        "id": "2.16.840.1.113883.3.464.1004.1064.29",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ValueSet/2.16.840.1.113883.3.464.1004.1064.29",
+        "id": "2.16.840.1.113883.3.464.1004.1064",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ValueSet/2.16.840.1.113883.3.464.1004.1064",
         "status": "active",
         "compose": {
           "include": [
