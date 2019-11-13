@@ -49,15 +49,16 @@ public class R4MeasureEvaluationTests extends MeasureEvaluationTestBase {
 
         for (MeasureTestScript script : scripts) {
             TestHelper.loadMeasureData(script, baseR4Url);
-            String response =
-                    RequestFactory.makeRequest(
-                            RequestFactory.RequestType.GET,
-                            baseR4Url + TestHelper.buildEvaluateMeasureRequest(script),
-                            null
-                    );
-
-            R4MeasureReportProcessor processor =  new R4MeasureReportProcessor(response);
-            processExpectedResponse(script, processor);
+            for (MeasureTestScript.Test test : script.getTest()) {
+                String response =
+                        RequestFactory.makeRequest(
+                                RequestFactory.RequestType.GET,
+                                baseR4Url + TestHelper.buildEvaluateMeasureRequest(test),
+                                null
+                        );
+                R4MeasureReportProcessor processor =  new R4MeasureReportProcessor(response);
+                processExpectedResponse(test, processor);
+            }
         }
     }
 

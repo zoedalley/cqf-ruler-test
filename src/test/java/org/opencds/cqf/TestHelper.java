@@ -35,54 +35,54 @@ public class TestHelper {
             String resource = new String(Files.readAllBytes(Paths.get(artifact.getPath())), StandardCharsets.UTF_8);
             RequestFactory.makeRequest(RequestFactory.RequestType.PUT, baseUrl + "/" + artifact.getReference(), resource);
         }
-        for (String artifact : script.getTest().getLoadPatientData().getBundle()) {
-            String bundle = new String(Files.readAllBytes(Paths.get(artifact)), StandardCharsets.UTF_8);
-            RequestFactory.makeRequest(RequestFactory.RequestType.POST, baseUrl, bundle);
-        }
-        for (ResourceItems artifact : script.getTest().getLoadPatientData().getResource()) {
-            String resource = new String(Files.readAllBytes(Paths.get(artifact.getPath())), StandardCharsets.UTF_8);
-            RequestFactory.makeRequest(RequestFactory.RequestType.PUT, baseUrl + "/" + artifact.getReference(), resource);
+        for (MeasureTestScript.Test test : script.getTest()) {
+            for (String artifact : test.getLoadPatientData().getBundle()) {
+                String bundle = new String(Files.readAllBytes(Paths.get(artifact)), StandardCharsets.UTF_8);
+                RequestFactory.makeRequest(RequestFactory.RequestType.POST, baseUrl, bundle);
+            }
+            for (ResourceItems artifact : test.getLoadPatientData().getResource()) {
+                String resource = new String(Files.readAllBytes(Paths.get(artifact.getPath())), StandardCharsets.UTF_8);
+                RequestFactory.makeRequest(RequestFactory.RequestType.PUT, baseUrl + "/" + artifact.getReference(), resource);
+            }
         }
     }
 
-    public static String buildEvaluateMeasureRequest(MeasureTestScript script) {
-        String evaluateMeasureRequest = "/Measure/" + script.getTest().getMeasureId() + "/$evaluate-measure";
+    public static String buildEvaluateMeasureRequest(MeasureTestScript.Test test) {
+        String evaluateMeasureRequest = "/Measure/" + test.getMeasureId() + "/$evaluate-measure";
         String evaluateMeasureQuery = "";
-        if (script.getTest().getPatientId() != null && !script.getTest().getPatientId().isEmpty()) {
-            evaluateMeasureQuery += evaluateMeasureQuery.isEmpty()
-                    ? "?patient=" + script.getTest().getPatientId()
-                    : "&patient=" + script.getTest().getPatientId();
+        if (test.getPatientId() != null && !test.getPatientId().isEmpty()) {
+            evaluateMeasureQuery += "?patient=" + test.getPatientId();
         }
-        if (script.getTest().getReportType() != null && !script.getTest().getReportType().isEmpty()) {
+        if (test.getReportType() != null && !test.getReportType().isEmpty()) {
             evaluateMeasureQuery += evaluateMeasureQuery.isEmpty()
-                    ? "?reportType=" + script.getTest().getReportType()
-                    : "&reportType=" + script.getTest().getReportType();
+                    ? "?reportType=" + test.getReportType()
+                    : "&reportType=" + test.getReportType();
         }
-        if (script.getTest().getPeriodStart() != null && !script.getTest().getPeriodStart().isEmpty()) {
+        if (test.getPeriodStart() != null && !test.getPeriodStart().isEmpty()) {
             evaluateMeasureQuery += evaluateMeasureQuery.isEmpty()
-                    ? "?periodStart=" + script.getTest().getPeriodStart()
-                    : "&periodStart=" + script.getTest().getPeriodStart();
+                    ? "?periodStart=" + test.getPeriodStart()
+                    : "&periodStart=" + test.getPeriodStart();
         }
         else {
             throw new RuntimeException("The $evaluate-measure operation requires a periodStart value");
         }
-        if (script.getTest().getPeriodEnd() != null && !script.getTest().getPeriodEnd().isEmpty()) {
+        if (test.getPeriodEnd() != null && !test.getPeriodEnd().isEmpty()) {
             evaluateMeasureQuery += evaluateMeasureQuery.isEmpty()
-                    ? "?periodEnd=" + script.getTest().getPeriodEnd()
-                    : "&periodEnd=" + script.getTest().getPeriodEnd();
+                    ? "?periodEnd=" + test.getPeriodEnd()
+                    : "&periodEnd=" + test.getPeriodEnd();
         }
         else {
             throw new RuntimeException("The $evaluate-measure operation requires a periodEnd value");
         }
-        if (script.getTest().getPractitioner() != null && !script.getTest().getPractitioner().isEmpty()) {
+        if (test.getPractitioner() != null && !test.getPractitioner().isEmpty()) {
             evaluateMeasureQuery += evaluateMeasureQuery.isEmpty()
-                    ? "?practitioner=" + script.getTest().getPractitioner()
-                    : "&practitioner=" + script.getTest().getPractitioner();
+                    ? "?practitioner=" + test.getPractitioner()
+                    : "&practitioner=" + test.getPractitioner();
         }
-        if (script.getTest().getLastReceivedOn() != null && !script.getTest().getLastReceivedOn().isEmpty()) {
+        if (test.getLastReceivedOn() != null && !test.getLastReceivedOn().isEmpty()) {
             evaluateMeasureQuery += evaluateMeasureQuery.isEmpty()
-                    ? "?lastReceivedOn=" + script.getTest().getLastReceivedOn()
-                    : "&lastReceivedOn=" + script.getTest().getLastReceivedOn();
+                    ? "?lastReceivedOn=" + test.getLastReceivedOn()
+                    : "&lastReceivedOn=" + test.getLastReceivedOn();
         }
 
         return evaluateMeasureRequest + evaluateMeasureQuery;
