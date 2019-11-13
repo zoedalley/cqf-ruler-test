@@ -1,5 +1,6 @@
 <MeasureTestScript>
     <id>BCS</id>
+    <enabled>true</enabled>
     <description>Breast Cancer Screening STU3 Measure Tests</description>
     <!-- Load artifacts (Library, Measure, Terminology, etc...) -->
     <loadArtifacts>

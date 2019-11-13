@@ -48,16 +48,18 @@ public class R4MeasureEvaluationTests extends MeasureEvaluationTestBase {
     public void MeasureTests() throws JAXBException, IOException {
 
         for (MeasureTestScript script : scripts) {
-            TestHelper.loadMeasureData(script, baseR4Url);
-            for (MeasureTestScript.Test test : script.getTest()) {
-                String response =
-                        RequestFactory.makeRequest(
-                                RequestFactory.RequestType.GET,
-                                baseR4Url + TestHelper.buildEvaluateMeasureRequest(test),
-                                null
-                        );
-                R4MeasureReportProcessor processor =  new R4MeasureReportProcessor(response);
-                processExpectedResponse(test, processor);
+            if (script.isEnabled()) {
+                TestHelper.loadMeasureData(script, baseR4Url);
+                for (MeasureTestScript.Test test : script.getTest()) {
+                    String response =
+                            RequestFactory.makeRequest(
+                                    RequestFactory.RequestType.GET,
+                                    baseR4Url + TestHelper.buildEvaluateMeasureRequest(test),
+                                    null
+                            );
+                    R4MeasureReportProcessor processor = new R4MeasureReportProcessor(response);
+                    processExpectedResponse(test, processor);
+                }
             }
         }
     }
