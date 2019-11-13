@@ -32,9 +32,9 @@ public abstract class MeasureEvaluationTestBase {
                 }
             }
             if (items.getDenominatorExclusion() != null) {
-                JsonObject denominatorExclusiion = processor.getPopulationByCode(group, "denominator-exclusion");
-                if (denominatorExclusiion.has("count")) {
-                    Assert.assertTrue(denominatorExclusiion.get("count").getAsBigInteger().equals(items.getDenominatorExclusion()));
+                JsonObject denominatorExclusion = processor.getPopulationByCode(group, "denominator-exclusion");
+                if (denominatorExclusion.has("count")) {
+                    Assert.assertTrue(denominatorExclusion.get("count").getAsBigInteger().equals(items.getDenominatorExclusion()));
                 }
             }
             if (items.getMeasureScore() != null) {
