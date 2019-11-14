@@ -47,7 +47,6 @@ public class Stu3MeasureEvaluationTests extends MeasureEvaluationTestBase {
 
     @Test
     public void MeasureTests() throws IOException {
-
         for (MeasureTestScript script : scripts) {
             if (script.isEnabled()) {
                 TestHelper.loadMeasureData(script, baseStu3Url);
@@ -68,7 +67,7 @@ public class Stu3MeasureEvaluationTests extends MeasureEvaluationTestBase {
     @Override
     public void processMeasureScore(JsonObject group, GroupItems items) {
         if (group.has("measureScore")) {
-            Assert.assertTrue(group.getAsJsonPrimitive("measureScore").getAsBigDecimal().equals(items.getMeasureScore()));
+            Assert.assertEquals(group.getAsJsonPrimitive("measureScore").getAsBigDecimal(), items.getMeasureScore());
         }
     }
 }
