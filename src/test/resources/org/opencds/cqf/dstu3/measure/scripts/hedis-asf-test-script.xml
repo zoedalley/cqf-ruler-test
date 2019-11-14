@@ -1,5 +1,6 @@
 <MeasureTestScript>
     <id>ASF</id>
+    <enabled>true</enabled>
     <description>Unhealthy Alcohol Use Screening and Follow-up STU3 Measure Tests</description>
     <loadArtifacts>
         <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/asf-terminology.json</bundle>
@@ -25,12 +26,71 @@
         <reportType>patient</reportType>
         <expectedResponse>
             <group>
-                <id>ASF-cohort</id>
+                <id>ASF-cohort-1</id>
                 <initial-population>1</initial-population>
                 <denominator>1</denominator>
                 <numerator>1</numerator>
-                <denominator-exclusion>0</denominator-exclusion>
                 <measure-score>1.0</measure-score>
+            </group>
+        </expectedResponse>
+    </test>
+    <test>
+        <id>asf-in-2</id>
+        <loadPatientData>
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/bundle-asf-in-2.json</bundle>
+        </loadPatientData>
+        <measureId>measure-asf</measureId>
+        <patientId>asf-in-2</patientId>
+        <periodStart>2019-01-01</periodStart>
+        <periodEnd>2019-12-31</periodEnd>
+        <reportType>patient</reportType>
+        <expectedResponse>
+            <group>
+                <id>ASF-cohort-2</id>
+                <initial-population>1</initial-population>
+                <denominator>1</denominator>
+                <numerator>1</numerator>
+                <measure-score>1.0</measure-score>
+            </group>
+        </expectedResponse>
+    </test>
+    <test>
+        <id>asf-out</id>
+        <loadPatientData>
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/bundle-asf-out.json</bundle>
+        </loadPatientData>
+        <measureId>measure-asf</measureId>
+        <patientId>asf-out</patientId>
+        <periodStart>2019-01-01</periodStart>
+        <periodEnd>2019-12-31</periodEnd>
+        <reportType>patient</reportType>
+        <expectedResponse>
+            <group>
+                <id>ASF-cohort-1</id>
+                <initial-population>1</initial-population>
+                <denominator>1</denominator>
+                <numerator>0</numerator>
+                <measure-score>0.0</measure-score>
+            </group>
+        </expectedResponse>
+    </test>
+    <test>
+        <id>asf-out-2</id>
+        <loadPatientData>
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/asf/bundle-asf-out-2.json</bundle>
+        </loadPatientData>
+        <measureId>measure-asf</measureId>
+        <patientId>asf-out-2</patientId>
+        <periodStart>2019-01-01</periodStart>
+        <periodEnd>2019-12-31</periodEnd>
+        <reportType>patient</reportType>
+        <expectedResponse>
+            <group>
+                <id>ASF-cohort-2</id>
+                <initial-population>1</initial-population>
+                <denominator>1</denominator>
+                <numerator>0</numerator>
+                <measure-score>0.0</measure-score>
             </group>
         </expectedResponse>
     </test>

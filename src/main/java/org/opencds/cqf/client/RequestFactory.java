@@ -22,7 +22,7 @@ public class RequestFactory {
         PUT
     }
 
-    public static String makePostRequest(String url, String body) {
+    private static String makePostRequest(String url, String body) {
         HttpPost post = new HttpPost(url);
         post.addHeader("Content-Type", "application/json");
         String result;
@@ -47,7 +47,7 @@ public class RequestFactory {
         return result;
     }
 
-    public static String makePutRequest(String url, String body) {
+    private static String makePutRequest(String url, String body) {
         HttpPut put = new HttpPut(url);
         put.addHeader("Content-Type", "application/json");
         String result;
@@ -72,7 +72,7 @@ public class RequestFactory {
         return result;
     }
 
-    public static String makeGetRequest(String url) {
+    private static String makeGetRequest(String url) {
         HttpGet get = new HttpGet(url);
         String result;
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
