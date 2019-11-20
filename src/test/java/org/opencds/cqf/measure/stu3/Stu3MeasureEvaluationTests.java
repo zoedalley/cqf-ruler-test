@@ -67,7 +67,7 @@ public class Stu3MeasureEvaluationTests extends MeasureEvaluationTestBase {
     @Override
     public void processMeasureScore(JsonObject group, GroupItems items) {
         if (group.has("measureScore")) {
-            Assert.assertEquals(group.getAsJsonPrimitive("measureScore").getAsBigDecimal(), items.getMeasureScore());
+            Assert.assertEquals(items.getMeasureScore(), group.getAsJsonPrimitive("measureScore").getAsBigDecimal());
         }
     }
 }
