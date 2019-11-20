@@ -746,11 +746,11 @@
       }
     },
     {
-      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/ValueSet/2.16.840.1.113883.3.464.1004.1208",
+      "fullUrl": "http://localhost:8080/cqf-ruler-dstu3/fhir/ValueSet/2.16.840.1.113883.3.464.1004.1208",
       "resource": {
         "resourceType": "ValueSet",
         "id": "2.16.840.1.113883.3.464.1004.1208",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ValueSet/2.16.840.1.113883.3.464.1004.1208",
+        "url": "http://localhost:8080/cqf-ruler-dstu3/fhir/ValueSet/2.16.840.1.113883.3.464.1004.1208",
         "status": "active",
         "compose": {
           "include": [
@@ -894,7 +894,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/ValueSet/2.16.840.1.113883.3.464.1004.1208"
+        "url": "http://localhost:8080/cqf-ruler-dstu3/fhir/ValueSet/2.16.840.1.113883.3.464.1004.1208"
       }
     }
   ]

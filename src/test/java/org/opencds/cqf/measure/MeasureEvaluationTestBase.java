@@ -16,25 +16,25 @@ public abstract class MeasureEvaluationTestBase {
             if (items.getInitialPopulation() != null) {
                 JsonObject initialPopulation = processor.getPopulationByCode(group, "initial-population");
                 if (initialPopulation.has("count")) {
-                    Assert.assertEquals(initialPopulation.get("count").getAsBigInteger(), items.getInitialPopulation());
+                    Assert.assertEquals(items.getInitialPopulation(), initialPopulation.get("count").getAsBigInteger());
                 }
             }
             if (items.getDenominator() != null) {
                 JsonObject denominator = processor.getPopulationByCode(group, "denominator");
                 if (denominator.has("count")) {
-                    Assert.assertEquals(denominator.get("count").getAsBigInteger(), items.getDenominator());
+                    Assert.assertEquals(items.getDenominator(), denominator.get("count").getAsBigInteger());
                 }
             }
             if (items.getNumerator() != null) {
                 JsonObject numerator = processor.getPopulationByCode(group, "numerator");
                 if (numerator.has("count")) {
-                    Assert.assertEquals(numerator.get("count").getAsBigInteger(), items.getNumerator());
+                    Assert.assertEquals(items.getNumerator(), numerator.get("count").getAsBigInteger());
                 }
             }
             if (items.getDenominatorExclusion() != null) {
                 JsonObject denominatorExclusion = processor.getPopulationByCode(group, "denominator-exclusion");
                 if (denominatorExclusion.has("count")) {
-                    Assert.assertEquals(denominatorExclusion.get("count").getAsBigInteger(), items.getDenominatorExclusion());
+                    Assert.assertEquals(items.getDenominatorExclusion(), denominatorExclusion.get("count").getAsBigInteger());
                 }
             }
             if (items.getMeasureScore() != null) {
