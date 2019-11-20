@@ -64,11 +64,11 @@ public class R4MeasureEvaluationTests extends MeasureEvaluationTestBase {
     }
 
     @Override
-    public void processMeasureScore(JsonObject group, GroupItems items) {
+    public void processMeasureScore(String assertionMessage, JsonObject group, GroupItems items) {
         if (group.has("measureScore")) {
             JsonObject measureScoreQuantity = group.getAsJsonObject("measureScore");
             if (measureScoreQuantity.has("value")) {
-                Assert.assertEquals(measureScoreQuantity.getAsJsonPrimitive("value").getAsBigDecimal(), items.getMeasureScore());
+                Assert.assertEquals(assertionMessage, measureScoreQuantity.getAsJsonPrimitive("value").getAsBigDecimal(), items.getMeasureScore());
             }
         }
     }
