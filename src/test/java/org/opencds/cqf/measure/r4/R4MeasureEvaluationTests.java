@@ -45,8 +45,7 @@ public class R4MeasureEvaluationTests extends MeasureEvaluationTestBase {
     public ErrorCollector collector = new ErrorCollector();
 
     @Test
-    public void MeasureTests() throws JAXBException, IOException {
-
+    public void MeasureTests() throws IOException {
         for (MeasureTestScript script : scripts) {
             if (script.isEnabled()) {
                 TestHelper.loadMeasureData(script, baseR4Url);
@@ -69,7 +68,7 @@ public class R4MeasureEvaluationTests extends MeasureEvaluationTestBase {
         if (group.has("measureScore")) {
             JsonObject measureScoreQuantity = group.getAsJsonObject("measureScore");
             if (measureScoreQuantity.has("value")) {
-                Assert.assertTrue(measureScoreQuantity.getAsJsonPrimitive("value").getAsBigDecimal().equals(items.getMeasureScore()));
+                Assert.assertEquals(measureScoreQuantity.getAsJsonPrimitive("value").getAsBigDecimal(), items.getMeasureScore());
             }
         }
     }
