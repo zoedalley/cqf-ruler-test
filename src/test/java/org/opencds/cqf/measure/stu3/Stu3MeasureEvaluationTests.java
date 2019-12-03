@@ -46,26 +46,28 @@ public class Stu3MeasureEvaluationTests extends MeasureEvaluationTestBase {
     public ErrorCollector collector = new ErrorCollector();
 
     @Test
-    public void MeasureTests() throws JAXBException, IOException {
-
+    public void MeasureTests() throws IOException {
         for (MeasureTestScript script : scripts) {
-            TestHelper.loadMeasureData(script, baseStu3Url);
-            String response =
-                    RequestFactory.makeRequest(
-                            RequestFactory.RequestType.GET,
-                            baseStu3Url + TestHelper.buildEvaluateMeasureRequest(script),
-                            null
-                    );
-
-            Stu3MeasureReportProcessor processor =  new Stu3MeasureReportProcessor(response);
-            processExpectedResponse(script, processor);
+            if (script.isEnabled()) {
+                TestHelper.loadMeasureData(script, baseStu3Url);
+                for (MeasureTestScript.Test test : script.getTest()) {
+                    String response =
+                            RequestFactory.makeRequest(
+                                    RequestFactory.RequestType.GET,
+                                    baseStu3Url + TestHelper.buildEvaluateMeasureRequest(test),
+                                    null
+                            );
+                    Stu3MeasureReportProcessor processor = new Stu3MeasureReportProcessor(response);
+                    processExpectedResponse(test, processor);
+                }
+            }
         }
     }
 
     @Override
-    public void processMeasureScore(JsonObject group, GroupItems items) {
+    public void processMeasureScore(String assertionMessage, JsonObject group, GroupItems items) {
         if (group.has("measureScore")) {
-            Assert.assertTrue(group.getAsJsonPrimitive("measureScore").getAsBigDecimal().equals(items.getMeasureScore()));
+            Assert.assertEquals(assertionMessage, items.getMeasureScore(), group.getAsJsonPrimitive("measureScore").getAsBigDecimal());
         }
     }
 }

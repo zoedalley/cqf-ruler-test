@@ -1,37 +1,37 @@
 <MeasureTestScript>
-    <id>hedis-CCS</id>
+    <id>hedis-COL</id>
     <enabled>true</enabled>
     <description>Cervical Cancer Screening STU3 Measure Tests</description>
     <!-- Load artifacts (Library, Measure, Terminology, etc...) -->
     <loadArtifacts>
-        <!-- Can load any number of Bundles or Resources -->
-        <!-- Relative file path from project base -->
-        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/ccs-terminology.json</bundle>
-        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-libraries.json</bundle>
-        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-terminology.json</bundle>
-        <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bundle-patient.json</bundle>
-        <resource>
-            <reference>Library/library-ccs-logic</reference>
-            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/library-ccs-logic.json</path>
-        </resource>
-        <resource>
-            <reference>Measure/measure-ccs</reference>
-            <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/measure-ccs.json</path>
-        </resource>
+    <!-- Can load any number of Bundles or Resources -->
+    <!-- Relative file path from project base -->
+    <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/col/col-terminology.json</bundle>
+    <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-libraries.json</bundle>
+    <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/common-terminology.json</bundle>
+    <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/bundle-patient.json</bundle>
+    <resource>
+    <reference>Library/library-col-logic</reference>
+    <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/col/library-col-logic.json</path>
+    </resource>
+    <resource>
+    <reference>Measure/measure-col</reference>
+    <path>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/col/measure-col.json</path>
+    </resource>
     </loadArtifacts>
     <!-- List of tests -->
     <test>
-        <id>ccs-patient-1136-out</id>
+        <id>col-patient-6484-out</id>
         <!-- Load patient data (Patient, Encounter, Observation, etc... -->
         <loadPatientData>
             <!-- Can load any number of Bundles or Resources -->
             <!-- Relative file path from project base -->
-            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/bundle-adj-2636.json</bundle>
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/col/bundle-icj-4882.json</bundle>
             <!--<resource></resource>-->
         </loadPatientData>
         <!-- Start $evaluate-measure parameters -->
-        <measureId>measure-ccs</measureId>
-        <patientId>Patient-1136</patientId>
+        <measureId>measure-col</measureId>
+        <patientId>Patient-6484</patientId>
         <periodStart>2017-01-01</periodStart>
         <periodEnd>2017-12-31</periodEnd>
         <reportType>patient</reportType>
@@ -42,7 +42,7 @@
         <expectedResponse>
             <!-- Groups correspond to the group identifier/code in the Measure/MeasureReport -->
             <group>
-                <id>CCS-cohort</id>
+                <id>COL-cohort</id>
                 <!-- The expected count for each population grouping -->
                 <initial-population>1</initial-population>
                 <denominator>1</denominator>
@@ -54,17 +54,17 @@
         </expectedResponse>
     </test>
     <test>
-        <id>ccs-patient-6520-in</id>
+        <id>col-patient-6523-in</id>
         <!-- Load patient data (Patient, Encounter, Observation, etc... -->
         <loadPatientData>
             <!-- Can load any number of Bundles or Resources -->
             <!-- Relative file path from project base -->
-            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/ccs/bundle-thw-789.json</bundle>
+            <bundle>src/test/resources/org/opencds/cqf/dstu3/measure/resources/hedis/col/bundle-wdv-6523.json</bundle>
             <!--<resource></resource>-->
         </loadPatientData>
         <!-- Start $evaluate-measure parameters -->
-        <measureId>measure-ccs</measureId>
-        <patientId>Patient-6520</patientId>
+        <measureId>measure-col</measureId>
+        <patientId>Patient-6523</patientId>
         <periodStart>1997-01-01</periodStart>
         <periodEnd>1997-12-31</periodEnd>
         <reportType>patient</reportType>
@@ -75,7 +75,7 @@
         <expectedResponse>
             <!-- Groups correspond to the group identifier/code in the Measure/MeasureReport -->
             <group>
-                <id>CCS-cohort</id>
+                <id>COL-cohort</id>
                 <!-- The expected count for each population grouping -->
                 <initial-population>1</initial-population>
                 <denominator>1</denominator>
